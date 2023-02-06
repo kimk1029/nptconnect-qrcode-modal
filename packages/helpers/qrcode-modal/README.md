@@ -2,8 +2,6 @@
 
 QR Code Modal for NEOPIN Connect
 
-<!-- For more details, read the [documentation](https://docs.walletconnect.org) -->
-
 ```js
 import NeopinConnectQRCode from "nptconnect-qrcode-modal";
 
