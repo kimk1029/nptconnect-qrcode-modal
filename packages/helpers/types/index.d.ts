@@ -1,3 +1,4 @@
+export declare function getClientMeta(): IClientMeta | null;
 export interface IConnector {
   bridge: string;
   key: string;
@@ -130,6 +131,7 @@ export interface ICallTxData {
   gasPrice?: number | string;
   nonce?: number | string;
   data?: string;
+  chainId?: number | string;
 }
 
 export interface ITxData extends ICallTxData {
@@ -188,6 +190,7 @@ export interface IClientMeta {
   url: string;
   icons: string[];
   name: string;
+  appId?: string;
 }
 
 export interface IEventEmitter {

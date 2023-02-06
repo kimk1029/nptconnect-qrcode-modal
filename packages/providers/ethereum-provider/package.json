@@ -1,7 +1,7 @@
 {
-  "name": "@walletconnect/ethereum-provider",
-  "version": "1.8.0",
-  "description": "Ethereum Provider for WalletConnect",
+  "name": "nptconnect-ethereum-provider",
+  "version": "1.0.6",
+  "description": "Ethereum Provider for NeopinConnect",
   "scripts": {
     "clean": "rm -rf dist",
     "build:pre": "run-s clean",
@@ -23,9 +23,6 @@
     "cryptocurrency",
     "dapp"
   ],
-  "author": "WalletConnect, Inc. <walletconnect.com>",
-  "homepage": "https://github.com/WalletConnect/walletconnect-monorepo/",
-  "license": "Apache-2.0",
   "main": "dist/cjs/index.js",
   "browser": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
@@ -33,13 +30,6 @@
   "files": [
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/walletconnect/walletconnect-monorepo.git"
-  },
-  "bugs": {
-    "url": "https://github.com/walletconnect/walletconnect-monorepo/issues"
-  },
   "devDependencies": {
     "@babel/cli": "7.8.3",
     "@babel/core": "7.8.3",
@@ -63,14 +53,13 @@
     "webpack-cli": "3.3.10"
   },
   "dependencies": {
-    "@walletconnect/client": "^1.8.0",
     "@walletconnect/jsonrpc-http-connection": "^1.0.2",
     "@walletconnect/jsonrpc-provider": "^1.0.5",
-    "@walletconnect/signer-connection": "^1.8.0",
-    "@walletconnect/types": "^1.8.0",
-    "@walletconnect/utils": "^1.8.0",
     "eip1193-provider": "1.0.1",
-    "eventemitter3": "4.0.7"
+    "eventemitter3": "4.0.7",
+    "nptconnect-signer-connection": "^1.0.5",
+    "nptconnect-types": "^1.0.4",
+    "nptconnect-utils": "^1.0.4"
   },
   "gitHead": "165f7993c2acc907c653c02847fb02721052c6e7"
 }

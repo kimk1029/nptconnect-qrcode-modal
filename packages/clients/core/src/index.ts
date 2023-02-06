@@ -24,13 +24,12 @@ import {
   IPushServerOptions,
   IWalletConnectSession,
   IQRCodeModalOptions,
-} from "@walletconnect/types";
+} from "nptconnect-types";
 import {
   parsePersonalSign,
   parseTransactionData,
   convertArrayBufferToHex,
   convertHexToArrayBuffer,
-  getClientMeta,
   payloadId,
   uuid,
   formatRpcError,
@@ -44,7 +43,9 @@ import {
   mobileLinkChoiceKey,
   isMobile,
   removeLocal,
-} from "@walletconnect/utils";
+  getClientMeta,
+  isIOS,
+} from "nptconnect-utils";
 import SocketTransport from "@walletconnect/socket-transport";
 import {
   ERROR_SESSION_CONNECTED,
@@ -68,7 +69,7 @@ import { getBridgeUrl } from "./url";
 // -- Connector ------------------------------------------------------------ //
 
 class Connector implements IConnector {
-  public readonly protocol = "wc";
+  public readonly protocol = "nptwc";
   public readonly version = 1;
 
   // -- connection ----------------------------------------------------- //
@@ -118,7 +119,7 @@ class Connector implements IConnector {
   // -- constructor ----------------------------------------------------- //
 
   constructor(opts: IConnectorOpts) {
-    this._clientMeta = getClientMeta() || opts.connectorOpts.clientMeta || null;
+    this._clientMeta = opts.connectorOpts.clientMeta || null;
     this._cryptoLib = opts.cryptoLib;
     this._sessionStorage = opts.sessionStorage || new SessionStorage(opts.connectorOpts.storageId);
     this._qrcodeModal = opts.connectorOpts.qrcodeModal;
@@ -225,7 +226,7 @@ class Connector implements IConnector {
   }
 
   set clientMeta(value) {
-    // empty
+    this._clientMeta = value;
   }
 
   get clientMeta() {
@@ -1060,6 +1061,9 @@ class Connector implements IConnector {
         if (mobileLinkUrl) {
           window.location.href = mobileLinkUrl.href;
         }
+      }
+      if (isIOS()) {
+        window.location.href = "https://neopin.page.link";
       }
     });
 

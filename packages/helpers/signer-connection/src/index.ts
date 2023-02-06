@@ -1,6 +1,6 @@
 import EventEmitter from "eventemitter3";
-import WalletConnect from "@walletconnect/client";
-import QRCodeModal from "@walletconnect/qrcode-modal";
+import NeopinConnect from "nptconnect-client";
+import QRCodeModal from "nptconnect-qrcode-modal";
 import { IJsonRpcConnection, JsonRpcError, JsonRpcResponse } from "@walletconnect/jsonrpc-types";
 import { formatJsonRpcError } from "@walletconnect/jsonrpc-utils";
 import {
@@ -9,7 +9,7 @@ import {
   IJsonRpcResponseSuccess,
   IQRCodeModalOptions,
   IWCEthRpcConnectionOptions,
-} from "@walletconnect/types";
+} from "nptconnect-types";
 
 export class SignerConnection extends IJsonRpcConnection {
   public events: any = new EventEmitter();
@@ -115,10 +115,17 @@ export class SignerConnection extends IJsonRpcConnection {
       signingMethods: opts?.signingMethods,
       clientMeta: opts?.clientMeta,
     };
+    // { bridge: string;
+    //    qrcodeModal: { open: (uri: string, cb: any, qrcodeModalOptions?: IQRCodeModalOptions | undefined) => void; close: () => void; } | undefined;
+    //     qrcodeModalOptions: IQRCodeModalOptions | undefined;
+    //     storageId: string | undefined;
+    //      signingMethods: string[] | undefined;
+    //       clientMeta: IClientMeta | undefined;
+    //      }
     this.wc =
-      typeof opts?.connector !== "undefined" ? opts.connector : new WalletConnect(connectorOpts);
+      typeof opts?.connector !== "undefined" ? opts.connector : new NeopinConnect(connectorOpts);
     if (typeof this.wc === "undefined") {
-      throw new Error("Failed to register WalletConnect connector");
+      throw new Error("Failed to register NeopinConnect connector");
     }
     if (this.wc.accounts.length) {
       this.accounts = this.wc.accounts;

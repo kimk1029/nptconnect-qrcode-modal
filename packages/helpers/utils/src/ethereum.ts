@@ -1,7 +1,7 @@
 import { keccak_256 } from "js-sha3";
 import { removeHexPrefix, addHexPrefix } from "@walletconnect/encoding";
 
-import { ITxData } from "@walletconnect/types";
+import { ITxData } from "nptconnect-types";
 import { convertUtf8ToHex, convertNumberToHex, convertUtf8ToBuffer } from "./encoding";
 import { sanitizeHex, removeHexLeadingZeros } from "./misc";
 import { isEmptyArray, isHexString, isEmptyString } from "./validators";
@@ -76,13 +76,14 @@ export function parseTransactionData(txData: Partial<ITxData>): Partial<ITxData>
     value: typeof txData.value === "undefined" ? "" : parseHexValues(txData.value),
     nonce: typeof txData.nonce === "undefined" ? "" : parseHexValues(txData.nonce),
     data: typeof txData.data === "undefined" ? "" : sanitizeHex(txData.data) || "0x",
+    chainId: typeof txData.chainId === "undefined" ? "" : txData.chainId,
   };
 
   const prunable = ["gasPrice", "gas", "value", "nonce"];
   Object.keys(txDataRPC).forEach((key: string) => {
     if (
       (typeof txDataRPC[key] === "undefined" ||
-        (typeof txDataRPC[key] === "string" && !txDataRPC[key].trim().length)) &&
+        (typeof txDataRPC[key] === "string" && !"txDataRPC"[key].trim().length)) &&
       prunable.includes(key)
     ) {
       delete txDataRPC[key];

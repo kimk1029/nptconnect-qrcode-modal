@@ -1,4 +1,4 @@
-import { IQRCodeModalOptions } from "@walletconnect/types";
+import { IQRCodeModalOptions } from "nptconnect-types";
 
 import * as nodeLib from "./node";
 import * as browserLib from "./browser";

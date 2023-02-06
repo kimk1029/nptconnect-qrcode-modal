@@ -1,4 +1,4 @@
-import { IClientMeta } from "@walletconnect/types";
+import { IClientMeta } from "nptconnect-types";
 
 import * as windowMetadata from "@walletconnect/window-metadata";
 import * as windowGetters from "@walletconnect/window-getters";

@@ -1,25 +1,25 @@
-# WalletConnect Client
+# NPTConnect Client
 
-Client for WalletConnect
+Client for NeopinConnect
 
-For more details, read the [documentation](https://docs.walletconnect.org)
+<!-- For more details, read the [documentation](https://docs.walletconnect.org) -->
 
 ## Install
 
 ```bash
-yarn add @walletconnect/client
+yarn add nptconnect-client
 # OR
 
-npm install --save @walletconnect/client
+npm install --save nptconnect-client
 ```
 
 ## Initiate Connection
 
 ```javascript
-import WalletConnect from "@walletconnect/client";
+import NeopinConnect from "nptconnect-client";
 
 // Create a connector
-const connector = new WalletConnect({
+const connector = new NeopinConnect({
   bridge: "https://bridge.walletconnect.org", // Required
 });
 
@@ -41,6 +41,17 @@ connector.on("disconnect", (error, payload) => {
 });
 
 const { accounts, chainId } = await connector.connect();
+```
+
+## get account & chainId
+
+```javascript
+...
+const {accounts, chainId} = connector ;
+// accounts is array
+const address = accounts[0];
+console.log(chainId)
+...
 ```
 
 ## Send Transaction \(eth_sendTransaction\)
@@ -97,6 +108,7 @@ connector
   });
 ```
 
+<!--
 ## Sign Personal Message \(personal_sign\)
 
 ```javascript
@@ -280,4 +292,4 @@ connector
     // Handle Error or Rejection
     console.error(error);
   });
-```
+``` -->

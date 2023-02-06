@@ -14,7 +14,7 @@ export function getLocal(key: string): any {
   let raw: string | null = null;
   const local = getLocalStorage();
   if (local) {
-    raw = local.getItem(key);
+        raw = local.getItem(key);
   }
   data = raw ? safeJsonParse(raw) : raw;
   return data;

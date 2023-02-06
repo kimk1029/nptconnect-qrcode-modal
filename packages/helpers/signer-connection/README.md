@@ -1,3 +1,3 @@
-# WalletConnect Rpc Connection
+# NeopinConnect Rpc Connection
 
-Rpc Connection for WalletConnect Providers
+Rpc Connection for NeopinConnect Providers

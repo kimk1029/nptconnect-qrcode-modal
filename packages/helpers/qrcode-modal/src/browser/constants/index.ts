@@ -1,4 +1,4 @@
-export const WALLETCONNECT_HEADER_TEXT = "WalletConnect";
+export const WALLETCONNECT_HEADER_TEXT = "NEOPIN";
 
 export const ANIMATION_DURATION = 300;
 export const DEFAULT_BUTTON_COLOR = "rgb(64, 153, 255)";

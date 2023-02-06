@@ -1,8 +1,8 @@
-import Connector from "@walletconnect/core";
-import { IWalletConnectOptions, IPushServerOptions } from "@walletconnect/types";
+import Connector from "nptconnect-core";
+import { IWalletConnectOptions, IPushServerOptions } from "nptconnect-types";
 import * as cryptoLib from "@walletconnect/iso-crypto";
 
-class WalletConnect extends Connector {
+class NeopinConnect extends Connector {
   constructor(connectorOpts: IWalletConnectOptions, pushServerOpts?: IPushServerOptions) {
     super({
       cryptoLib,
@@ -12,4 +12,4 @@ class WalletConnect extends Connector {
   }
 }
 
-export default WalletConnect;
+export default NeopinConnect;

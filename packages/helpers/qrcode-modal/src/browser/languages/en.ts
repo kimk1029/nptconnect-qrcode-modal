@@ -2,8 +2,8 @@ import { TextMap } from "../types";
 
 const en: TextMap = {
   choose_preferred_wallet: "Choose your preferred wallet",
-  connect_mobile_wallet: "Connect to Mobile Wallet",
-  scan_qrcode_with_wallet: "Scan QR code with a WalletConnect-compatible wallet",
+  connect_mobile_wallet: "Connect to NEOPIN Wallet",
+  scan_qrcode_with_wallet: "Scan the QR code on NEOPIN App.",
   connect: "Connect",
   qrcode: "QR Code",
   mobile: "Mobile",

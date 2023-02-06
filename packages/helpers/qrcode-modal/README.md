@@ -1,11 +1,11 @@
-# WalletConnect QR Code Modal
+# NEOPIN Connect QR Code Modal
 
-QR Code Modal for WalletConnect
+QR Code Modal for NEOPIN Connect
 
-For more details, read the [documentation](https://docs.walletconnect.org)
+<!-- For more details, read the [documentation](https://docs.walletconnect.org) -->
 
 ```js
-import WalletConnectQRCodeModal from "walletconnect-qrcode-modal";
+import NeopinConnectQRCode from "nptconnect-qrcode-modal";
 
 /**
  *  Get URI from WalletConnect object
@@ -15,10 +15,10 @@ const uri = connector.uri;
 /**
  *  Open QR Code Modal
  */
-WalletConnectQRCodeModal.open(uri);
+NeopinConnectQRCode.open(uri);
 
 /**
  *  Close QR Code Modal
  */
-WalletConnectQRCodeModal.close();
+NeopinConnectQRCode.close();
 ```

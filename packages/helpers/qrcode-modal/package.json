@@ -1,7 +1,7 @@
 {
-  "name": "@walletconnect/qrcode-modal",
-  "version": "1.8.0",
-  "description": "QR Code Modal for WalletConnect",
+  "name": "nptconnect-qrcode-modal",
+  "version": "1.1.13",
+  "description": "QR Code Modal for Neopin Connect",
   "scripts": {
     "clean": "rm -rf dist",
     "build:svg": "node ./scripts/build-svg.js",
@@ -13,6 +13,8 @@
     "test": "env TS_NODE_PROJECT=\"tsconfig.cjs.json\" mocha -r ts-node/register ./test/**/*.spec.ts --exit"
   },
   "keywords": [
+    "Neopin",
+    "NPT",
     "wallet",
     "walletconnect",
     "ethereum",
@@ -24,9 +26,6 @@
     "cryptocurrency",
     "dapp"
   ],
-  "author": "WalletConnect, Inc. <walletconnect.com>",
-  "homepage": "https://github.com/WalletConnect/walletconnect-monorepo/",
-  "license": "Apache-2.0",
   "source": "src/index.ts",
   "main": "dist/cjs/index.js",
   "types": "dist/cjs/index.d.ts",
@@ -34,13 +33,6 @@
   "files": [
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/walletconnect/walletconnect-monorepo.git"
-  },
-  "bugs": {
-    "url": "https://github.com/walletconnect/walletconnect-monorepo/issues"
-  },
   "devDependencies": {
     "@babel/cli": "7.8.3",
     "@babel/core": "7.8.3",
@@ -68,10 +60,10 @@
     "webpack-cli": "3.3.10"
   },
   "dependencies": {
-    "@walletconnect/browser-utils": "^1.8.0",
     "@walletconnect/mobile-registry": "^1.4.0",
-    "@walletconnect/types": "^1.8.0",
     "copy-to-clipboard": "^3.3.1",
+    "nptconnect-browser-utils": "^1.0.4",
+    "nptconnect-types": "^1.0.1",
     "preact": "10.4.1",
     "qrcode": "1.4.4"
   },

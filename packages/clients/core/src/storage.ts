@@ -1,5 +1,5 @@
-import { IWalletConnectSession } from "@walletconnect/types";
-import { isWalletConnectSession, getLocal, setLocal, removeLocal } from "@walletconnect/utils";
+import { IWalletConnectSession } from "nptconnect-types";
+import { isWalletConnectSession, getLocal, setLocal, removeLocal } from "nptconnect-utils";
 
 class SessionStorage {
   constructor(public storageId: string = "walletconnect") {}

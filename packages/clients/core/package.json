@@ -1,7 +1,7 @@
 {
-  "name": "@walletconnect/core",
-  "version": "1.8.0",
-  "description": "Core Library for WalletConnect",
+  "name": "nptconnect-core",
+  "version": "1.0.10",
+  "description": "Core Library for NeopinConnect",
   "scripts": {
     "clean": "rm -rf dist",
     "build:pre": "run-s clean",
@@ -12,9 +12,12 @@
     "test": "env TS_NODE_PROJECT=\"tsconfig.cjs.json\" mocha -r ts-node/register ./test/**/*.spec.ts --exit"
   },
   "keywords": [
+    "Neopin",
     "wallet",
+    "npt",
     "walletconnect",
     "ethereum",
+    "klaytn",
     "jsonrpc",
     "mobile",
     "qrcode",
@@ -23,9 +26,6 @@
     "cryptocurrency",
     "dapp"
   ],
-  "author": "WalletConnect, Inc. <walletconnect.com>",
-  "homepage": "https://github.com/WalletConnect/walletconnect-monorepo/",
-  "license": "Apache-2.0",
   "main": "dist/cjs/index.js",
   "browser": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
@@ -33,13 +33,6 @@
   "files": [
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/walletconnect/walletconnect-monorepo.git"
-  },
-  "bugs": {
-    "url": "https://github.com/walletconnect/walletconnect-monorepo/issues"
-  },
   "devDependencies": {
     "@babel/cli": "7.8.3",
     "@babel/core": "7.8.3",
@@ -61,8 +54,10 @@
   },
   "dependencies": {
     "@walletconnect/socket-transport": "^1.8.0",
-    "@walletconnect/types": "^1.8.0",
-    "@walletconnect/utils": "^1.8.0"
+    "nptconnect-types": "^1.0.4",
+    "nptconnect-utils": "^1.0.4"
   },
-  "gitHead": "165f7993c2acc907c653c02847fb02721052c6e7"
+  "directories": {
+    "test": "test"
+  }
 }

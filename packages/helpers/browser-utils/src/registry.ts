@@ -1,4 +1,4 @@
-import { IMobileRegistryEntry, IAppRegistry, IAppEntry } from "@walletconnect/types";
+import { IMobileRegistryEntry, IAppRegistry, IAppEntry } from "nptconnect-types";
 
 const API_URL = "https://registry.walletconnect.com";
 
@@ -10,7 +10,10 @@ export function getDappRegistryUrl(): string {
   return API_URL + "/api/v2/dapps";
 }
 
-export function formatMobileRegistryEntry(entry: IAppEntry, platform: "mobile" | "desktop" = "mobile"): IMobileRegistryEntry {
+export function formatMobileRegistryEntry(
+  entry: IAppEntry,
+  platform: "mobile" | "desktop" = "mobile",
+): IMobileRegistryEntry {
   return {
     name: entry.name || "",
     shortName: entry.metadata.shortName || "",
@@ -21,8 +24,11 @@ export function formatMobileRegistryEntry(entry: IAppEntry, platform: "mobile" |
   };
 }
 
-export function formatMobileRegistry(registry: IAppRegistry, platform: "mobile" | "desktop" = "mobile"): IMobileRegistryEntry[] {
+export function formatMobileRegistry(
+  registry: IAppRegistry,
+  platform: "mobile" | "desktop" = "mobile",
+): IMobileRegistryEntry[] {
   return Object.values<any>(registry)
     .filter(entry => !!entry[platform].universal || !!entry[platform].native)
-    .map((entry) => formatMobileRegistryEntry(entry, platform));
+    .map(entry => formatMobileRegistryEntry(entry, platform));
 }

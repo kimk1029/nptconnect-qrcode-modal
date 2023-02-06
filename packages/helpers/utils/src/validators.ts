@@ -5,7 +5,7 @@ import {
   IJsonRpcResponseSuccess,
   IJsonRpcResponseError,
   IInternalEvent,
-} from "@walletconnect/types";
+} from "nptconnect-types";
 
 import { signingMethods, reservedEvents } from "./constants";
 

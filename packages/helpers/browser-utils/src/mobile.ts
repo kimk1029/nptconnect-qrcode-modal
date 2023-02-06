@@ -1,4 +1,4 @@
-import { IMobileRegistryEntry, IMobileRegistry, IMobileLinkInfo } from "@walletconnect/types";
+import { IMobileRegistryEntry, IMobileRegistry, IMobileLinkInfo } from "nptconnect-types";
 
 import { setLocal } from "./local";
 

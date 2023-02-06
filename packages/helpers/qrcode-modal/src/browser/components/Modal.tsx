@@ -4,7 +4,7 @@ import {
   IQRCodeModalOptions,
   IAppRegistry,
   IMobileLinkInfo,
-} from "@walletconnect/types";
+} from "nptconnect-types";
 import {
   isMobile,
   isAndroid,
@@ -13,7 +13,7 @@ import {
   getMobileLinkRegistry,
   getWalletRegistryUrl,
   formatMobileRegistry,
-} from "@walletconnect/browser-utils";
+} from "nptconnect-browser-utils";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Header from "./Header";
@@ -31,6 +31,47 @@ interface ModalProps {
   onClose: any;
   qrcodeModalOptions?: IQRCodeModalOptions;
 }
+export const WHITELIST = {
+  neopin: {
+    id: "neopin",
+    name: "Neopin",
+    description: "Neopin",
+    homepage: "https://neopin.io/",
+    chains: ["eip155:1", "eip155:10", "eip155:137", "eip155:42161"],
+    versions: ["1"],
+    app_type: "wallet",
+    image_id: "neopin-img",
+    image_url: {
+      sm: "https://neopin.io/assets/img/neopin_appicon.png",
+      md: "https://neopin.io/assets/img/neopin_appicon.png",
+      lg: "https://neopin.io/assets/img/neopin_appicon.png",
+    },
+    app: {
+      browser: null,
+      ios:
+        "https://apps.apple.com/kr/app/neopin-%ED%98%84%EB%AA%85%ED%95%9C-%ED%81%AC%EB%A6%BD%ED%86%A0-%EC%9E%90%EC%82%B0-%EA%B4%80%EB%A6%AC/id1600381072",
+      android: "https://play.google.com/store/apps/details?id=com.blockchain.crypto.wallet.neopin",
+      mac: null,
+      windows: null,
+      linux: null,
+    },
+    mobile: {
+      native: "neopin:",
+      universal: "https://neopin.page.link",
+    },
+    desktop: {
+      native: null,
+      universal: null,
+    },
+    metadata: {
+      shortName: "Neopin",
+      colors: {
+        primary: "#001e59",
+        secondary: null,
+      },
+    },
+  },
+};
 
 function Modal(props: ModalProps) {
   const android = isAndroid();
@@ -72,8 +113,10 @@ function Modal(props: ModalProps) {
             props.qrcodeModalOptions && props.qrcodeModalOptions.registryUrl
               ? props.qrcodeModalOptions.registryUrl
               : getWalletRegistryUrl();
-          const registryResponse = await fetch(url)
-          const registry = (await registryResponse.json()).listings as IAppRegistry;
+          // const registryResponse = await fetch(url);
+          // const registry = (await registryResponse.json()).listings as IAppRegistry;
+          const registryResponse = WHITELIST;
+          const registry = (registryResponse as unknown) as IAppRegistry;
           const platform = mobile ? "mobile" : "desktop";
           const _links = getMobileLinkRegistry(formatMobileRegistry(registry, platform), whitelist);
           setLoading(false);
@@ -107,37 +150,21 @@ function Modal(props: ModalProps) {
         {hasSingleLink && displayQRCode ? (
           <div className="walletconnect-modal__single_wallet">
             <a
-              onClick={() => saveMobileLinkInfo({ name: links[0].name, href: singleLinkHref })}
+              onClick={() =>
+                saveMobileLinkInfo({
+                  name: links[0].name,
+                  href: singleLinkHref,
+                })
+              }
               href={singleLinkHref}
-              rel="noopener noreferrer"
+              rel="noopener noreferrer decode"
               target="_blank"
             >
               {props.text.connect_with + " " + (hasSingleLink ? links[0].name : "") + " ›"}
             </a>
           </div>
         ) : android || loading || (!loading && links.length) ? (
-          <div
-            className={`walletconnect-modal__mobile__toggle${
-              rightSelected ? " right__selected" : ""
-            }`}
-          >
-            <div className="walletconnect-modal__mobile__toggle_selector" />
-            {mobile ? (
-              <>
-                <a onClick={() => (setDisplayQRCode(false), getLinksIfNeeded())}>
-                  {props.text.mobile}
-                </a>
-                <a onClick={() => setDisplayQRCode(true)}>{props.text.qrcode}</a>
-              </>
-            ) : (
-              <>
-                <a onClick={() => setDisplayQRCode(true)}>{props.text.qrcode}</a>
-                <a onClick={() => (setDisplayQRCode(false), getLinksIfNeeded())}>
-                  {props.text.desktop}
-                </a>
-              </>
-            )}
-          </div>
+          <></>
         ) : null}
 
         <div>

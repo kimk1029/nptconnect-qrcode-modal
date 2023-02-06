@@ -1,9 +1,9 @@
 import EventEmitter from "eventemitter3";
 import { JsonRpcProvider } from "@walletconnect/jsonrpc-provider";
 import { HttpConnection } from "@walletconnect/jsonrpc-http-connection";
-import { IConnector, IRpcConfig, IWCEthRpcConnectionOptions } from "@walletconnect/types";
-import { getRpcUrl, signingMethods } from "@walletconnect/utils";
-import { SignerConnection } from "@walletconnect/signer-connection";
+import { IConnector, IRpcConfig, IWCEthRpcConnectionOptions } from "nptconnect-types";
+import { getRpcUrl, signingMethods } from "nptconnect-utils";
+import { SignerConnection } from "nptconnect-signer-connection";
 import { IEthereumProvider, ProviderAccounts, RequestArguments } from "eip1193-provider";
 
 class WalletConnectProvider implements IEthereumProvider {

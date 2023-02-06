@@ -1,7 +1,7 @@
 {
-  "name": "@walletconnect/browser-utils",
-  "version": "1.8.0",
-  "description": "Browser Utilities for WalletConnect",
+  "name": "nptconnect-browser-utils",
+  "version": "1.0.4",
+  "description": "Browser Utilities for NeopinConnect",
   "scripts": {
     "clean": "rm -rf dist",
     "build:pre": "run-s clean",
@@ -33,13 +33,6 @@
   "files": [
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/walletconnect/walletconnect-monorepo.git"
-  },
-  "bugs": {
-    "url": "https://github.com/walletconnect/walletconnect-monorepo/issues"
-  },
   "devDependencies": {
     "@babel/cli": "7.8.3",
     "@babel/core": "7.8.3",
@@ -63,7 +56,7 @@
   },
   "dependencies": {
     "@walletconnect/safe-json": "1.0.0",
-    "@walletconnect/types": "^1.8.0",
+    "nptconnect-types": "^1.0.2",
     "@walletconnect/window-getters": "1.0.0",
     "@walletconnect/window-metadata": "1.0.0",
     "detect-browser": "5.2.0"

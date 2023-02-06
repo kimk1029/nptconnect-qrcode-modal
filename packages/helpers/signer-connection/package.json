@@ -1,7 +1,7 @@
 {
-  "name": "@walletconnect/signer-connection",
-  "version": "1.8.0",
-  "description": "Signer Connection for WalletConnect Providers",
+  "name": "nptconnect-signer-connection",
+  "version": "1.0.5",
+  "description": "Signer Connection for nptconnect Providers",
   "scripts": {
     "clean": "rm -rf dist",
     "build:pre": "run-s clean",
@@ -12,6 +12,7 @@
     "test": "env TS_NODE_PROJECT=\"tsconfig.cjs.json\" mocha -r ts-node/register ./test/**/*.spec.ts --exit"
   },
   "keywords": [
+    "Neopin",
     "wallet",
     "walletconnect",
     "ethereum",
@@ -23,9 +24,6 @@
     "cryptocurrency",
     "dapp"
   ],
-  "author": "WalletConnect, Inc. <walletconnect.com>",
-  "homepage": "https://github.com/WalletConnect/walletconnect-monorepo/",
-  "license": "Apache-2.0",
   "main": "dist/cjs/index.js",
   "browser": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
@@ -33,15 +31,8 @@
   "files": [
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/walletconnect/walletconnect-monorepo.git"
-  },
-  "bugs": {
-    "url": "https://github.com/walletconnect/walletconnect-monorepo/issues"
-  },
   "devDependencies": {
-    "@babel/cli": "7.8.3",
+    "@babel/cli": "7.8.3",A
     "@babel/core": "7.8.3",
     "@babel/node": "7.8.3",
     "@babel/polyfill": "7.8.3",
@@ -61,12 +52,11 @@
     "webpack-cli": "3.3.10"
   },
   "dependencies": {
-    "@walletconnect/client": "^1.8.0",
     "@walletconnect/jsonrpc-types": "^1.0.1",
     "@walletconnect/jsonrpc-utils": "^1.0.3",
-    "@walletconnect/qrcode-modal": "^1.8.0",
-    "@walletconnect/types": "^1.8.0",
-    "eventemitter3": "4.0.7"
-  },
-  "gitHead": "165f7993c2acc907c653c02847fb02721052c6e7"
+    "eventemitter3": "4.0.7",
+    "nptconnect-client": "^1.0.13",
+    "nptconnect-qrcode-modal": "^1.1.13",
+    "nptconnect-types": "^1.0.4"
+  }
 }
