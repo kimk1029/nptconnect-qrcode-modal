@@ -1,6 +1,6 @@
 {
   "name": "nptconnect-signer-connection",
-  "version": "1.0.5",
+  "version": "1.0.10",
   "description": "Signer Connection for nptconnect Providers",
   "scripts": {
     "clean": "rm -rf dist",
@@ -32,7 +32,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@babel/cli": "7.8.3",A
+    "@babel/cli": "7.8.3",
     "@babel/core": "7.8.3",
     "@babel/node": "7.8.3",
     "@babel/polyfill": "7.8.3",
@@ -56,7 +56,7 @@
     "@walletconnect/jsonrpc-utils": "^1.0.3",
     "eventemitter3": "4.0.7",
     "nptconnect-client": "^1.0.13",
-    "nptconnect-qrcode-modal": "^1.1.13",
+    "nptconnect-qrcode-modal": "^2.0.5",
     "nptconnect-types": "^1.0.4"
   }
 }

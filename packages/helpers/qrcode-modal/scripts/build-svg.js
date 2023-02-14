@@ -12,7 +12,6 @@ buildAsset({
       .replace(`"`, ""),
 });
 
-
 buildAsset({
   assetFile: "caret.svg",
   targetFile: "caret.ts",
@@ -22,3 +21,23 @@ buildAsset({
       .replace(`module.exports = "`, "")
       .replace(`"`, ""),
 });
+buildAsset({
+  assetFile: "download_appstore.svg",
+  targetFile: "download-ios.ts",
+  targetVar: "NEOPIN_IOS_DOWNLOAD_SVG_URL",
+  loader: input =>
+    svgUrlLoader(input)
+      .replace(`module.exports = "`, "")
+      .replace(`"`, ""),
+});
+
+buildAsset({
+  assetFile: "download_google.svg",
+  targetFile: "download-aos.ts",
+  targetVar: "NEOPIN_AOS_DOWNLOAD_SVG_URL",
+  loader: input =>
+    svgUrlLoader(input)
+      .replace(`module.exports = "`, "")
+      .replace(`"`, ""),
+});
+

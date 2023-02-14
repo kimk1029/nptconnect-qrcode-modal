@@ -1,6 +1,6 @@
 {
   "name": "nptconnect-qrcode-modal",
-  "version": "1.1.13",
+  "version": "2.0.5",
   "description": "QR Code Modal for Neopin Connect",
   "scripts": {
     "clean": "rm -rf dist",

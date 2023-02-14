@@ -2,7 +2,8 @@
 import * as React from "react";
 import QRCode from "qrcode";
 import copy from "copy-to-clipboard";
-
+import { NEOPIN_IOS_DOWNLOAD_SVG_URL } from "../assets/download-ios";
+import { NEOPIN_AOS_DOWNLOAD_SVG_URL } from "../assets/download-aos";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Notification from "./Notification";
 
@@ -24,7 +25,6 @@ interface QRCodeDisplayProps {
 }
 
 function QRCodeDisplay(props: QRCodeDisplayProps) {
-  const [notification, setNotification] = React.useState("");
   const [svg, setSvg] = React.useState("");
 
   React.useEffect(() => {
@@ -33,27 +33,30 @@ function QRCodeDisplay(props: QRCodeDisplayProps) {
     })();
   }, []);
 
-  const copyToClipboard = () => {
-    const success = copy(props.uri);
-    if (success) {
-      setNotification(props.text.copied_to_clipboard);
-      setInterval(() => setNotification(""), 1200);
-    } else {
-      setNotification("Error");
-      setInterval(() => setNotification(""), 1200);
-    }
-  };
-
   return (
     <div>
-      <p id={WALLETCONNECT_CTA_TEXT_ID} className="walletconnect-qrcode__text">
-        {props.text.scan_qrcode_with_wallet}
-      </p>
-      <div dangerouslySetInnerHTML={{ __html: svg }}></div>
-      <div className="walletconnect-modal__footer">
-        <a onClick={copyToClipboard}>{props.text.copy_to_clipboard}</a>
+      <div className="walletconnect-qrcode__contents">
+        <h1 style={{ fontSize: "18px", color: "black", fontWeight: 600 }}>Connect NEOPIN Wallet</h1>
+        <p id={WALLETCONNECT_CTA_TEXT_ID} className="walletconnect-qrcode__text">
+          {props.text.scan_qrcode_with_wallet}
+        </p>
+        <div
+          dangerouslySetInnerHTML={{ __html: svg }}
+          style={{ width: "220px", margin: "0 auto" }}
+        ></div>
       </div>
-      <Notification message={notification} />
+      <hr />
+      <div className="walletconnect-modal-downdload">
+        <div className="store-title">Download NEOPIN Wallet App</div>
+        <div style={{ display: "flex" }} className="store-img">
+          <a href="https://play.google.com/store/apps/details?id=com.blockchain.crypto.wallet.neopin">
+            <img src={NEOPIN_AOS_DOWNLOAD_SVG_URL} />
+          </a>
+          <a href="https://apps.apple.com/kr/app/apple-store/id1600381072">
+            <img src={NEOPIN_IOS_DOWNLOAD_SVG_URL} />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

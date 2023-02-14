@@ -16,7 +16,7 @@ import {
 } from "nptconnect-browser-utils";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Header from "./Header";
+// import Header from "./Header";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import LinkDisplay from "./LinkDisplay";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -76,7 +76,14 @@ export const WHITELIST = {
 function Modal(props: ModalProps) {
   const android = isAndroid();
   const mobile = isMobile();
-
+  React.useEffect(() => {
+    document.addEventListener("click", e => {
+      //@ts-ignore
+      if (e.target && e.target.id === "walletconnect-qrcode-modal") {
+        props.onClose();
+      }
+    });
+  }, []);
   const whitelist = mobile
     ? props.qrcodeModalOptions && props.qrcodeModalOptions.mobileLinks
       ? props.qrcodeModalOptions.mobileLinks
@@ -146,7 +153,7 @@ function Modal(props: ModalProps) {
   return (
     <div id={WALLETCONNECT_MODAL_ID} className="walletconnect-qrcode__base animated fadeIn">
       <div className="walletconnect-modal__base">
-        <Header onClose={props.onClose} />
+        {/* <Header onClose={props.onClose} /> */}
         {hasSingleLink && displayQRCode ? (
           <div className="walletconnect-modal__single_wallet">
             <a
