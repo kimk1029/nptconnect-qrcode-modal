@@ -109,7 +109,7 @@ export const WALLETCONNECT_STYLE_SHEET = `@font-face {
 
 .walletconnect-qrcode__base {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  background: rgba(37, 41, 46, 0.35);
+  background: rgba(37, 41, 46, 0.2);
   height: 100%;
   left: 0;
   pointer-events: auto;
@@ -213,7 +213,7 @@ export const WALLETCONNECT_STYLE_SHEET = `@font-face {
   transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
   will-change: transform;
   overflow: visible;
-  top: 8px;
+  top: 70px;
   right: 40px;
   max-width: 500px;
   margin: auto;
@@ -432,7 +432,7 @@ export const WALLETCONNECT_STYLE_SHEET = `@font-face {
 }
 
 .walletconnect-connect__buttons__wrapper__android {
-  margin: 50% 0;
+  margin: 130px auto;
 }
 
 .walletconnect-connect__buttons__wrapper__wrap {

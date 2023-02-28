@@ -1,6 +1,6 @@
 {
   "name": "nptconnect-signer-connection",
-  "version": "1.0.10",
+  "version": "1.0.14",
   "description": "Signer Connection for nptconnect Providers",
   "scripts": {
     "clean": "rm -rf dist",
@@ -56,7 +56,7 @@
     "@walletconnect/jsonrpc-utils": "^1.0.3",
     "eventemitter3": "4.0.7",
     "nptconnect-client": "^1.0.13",
-    "nptconnect-qrcode-modal": "^2.0.5",
+    "nptconnect-qrcode-modal": "^2.0.9",
     "nptconnect-types": "^1.0.4"
   }
 }

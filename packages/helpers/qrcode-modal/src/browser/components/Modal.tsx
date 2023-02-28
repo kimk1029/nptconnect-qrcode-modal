@@ -14,7 +14,8 @@ import {
   getWalletRegistryUrl,
   formatMobileRegistry,
 } from "nptconnect-browser-utils";
-
+import { NEOPIN_IOS_DOWNLOAD_SVG_URL } from "../assets/download-ios";
+import { NEOPIN_AOS_DOWNLOAD_SVG_URL } from "../assets/download-aos";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 // import Header from "./Header";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -42,9 +43,9 @@ export const WHITELIST = {
     app_type: "wallet",
     image_id: "neopin-img",
     image_url: {
-      sm: "https://neopin.io/assets/img/neopin_appicon.png",
-      md: "https://neopin.io/assets/img/neopin_appicon.png",
-      lg: "https://neopin.io/assets/img/neopin_appicon.png",
+      sm: "https://static.neopin.io/assets/img/neopin_appicon.png",
+      md: "https://static.neopin.io/assets/img/neopin_appicon.png",
+      lg: "https://static.neopin.io/assets/img/neopin_appicon.png",
     },
     app: {
       browser: null,
@@ -149,7 +150,6 @@ function Modal(props: ModalProps) {
 
   getLinksIfNeeded();
 
-  const rightSelected = mobile ? displayQRCode : !displayQRCode;
   return (
     <div id={WALLETCONNECT_MODAL_ID} className="walletconnect-qrcode__base animated fadeIn">
       <div className="walletconnect-modal__base">
@@ -167,7 +167,7 @@ function Modal(props: ModalProps) {
               rel="noopener noreferrer decode"
               target="_blank"
             >
-              {props.text.connect_with + " " + (hasSingleLink ? links[0].name : "") + " ›"}
+              {"Connect Neopin ›"}
             </a>
           </div>
         ) : android || loading || (!loading && links.length) ? (
@@ -180,6 +180,21 @@ function Modal(props: ModalProps) {
           ) : (
             <LinkDisplay {...displayProps} links={links} errorMessage={errorMessage} />
           )}
+          <hr />
+          <div className="walletconnect-modal-downdload">
+            <div className="store-title">Download NEOPIN Wallet App</div>
+            <div style={{ display: "flex" }} className="store-img">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.blockchain.crypto.wallet.neopin"
+                target="_blank"
+              >
+                <img src={NEOPIN_AOS_DOWNLOAD_SVG_URL} />
+              </a>
+              <a href="https://apps.apple.com/kr/app/apple-store/id1600381072" target="_blank">
+                <img src={NEOPIN_IOS_DOWNLOAD_SVG_URL} />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
